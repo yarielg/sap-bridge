@@ -5,8 +5,7 @@ use Inc\Functions\ProdItems;
 $user = wp_get_current_user();
 $user_price_list = esc_attr(get_the_author_meta( 'price_list', $user->id ));
 $page = isset( $_GET['paged'])? $_GET['paged'] : 1;
-$limit = 5;
-
+$limit = 20;
 
 
 $items = ProdItems::getAllItemsByPriceList($user_price_list);

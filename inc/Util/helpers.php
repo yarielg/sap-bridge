@@ -27,12 +27,12 @@
         return $products;
     }
 
-    function bootstrap_pagination($max_num_pages , $echo = true ) {
+    function bootstrap_pagination( $max_num_pages, $echo = true ) {
 
         $pages = paginate_links( [
                 'base'         => str_replace( 999999999, '%#%', esc_url( get_pagenum_link( 999999999 ) ) ),
                 'format'       => '?paged=%#%',
-                'current'      => max( 1, get_query_var( 'paged' ) ),
+                'current'      => isset( $_GET['paged'])? $_GET['paged'] : 1, //max( 1, get_query_var( 'paged' ) ) doesn't work
                 'total'        => $max_num_pages,
                 'type'         => 'array',
                 'show_all'     => false,
@@ -46,7 +46,7 @@
             ]
         );
         if ( is_array( $pages ) ) {
-
+            //$paged = ( get_query_var( 'paged' ) == 0 ) ? 1 : get_query_var( 'paged' );
             $pagination = '<div class="pagination"><ul class="pagination">';
             foreach ($pages as $page) {
                 $pagination .= '<li class="page-item' . (strpos($page, 'current') !== false ? ' active' : '') . '"> ' . str_replace('page-numbers', 'page-link', $page) . '</li>';
@@ -58,6 +58,7 @@
                 return $pagination;
             }
         }
+
         return null;
     }
 
