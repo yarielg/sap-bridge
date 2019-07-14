@@ -1,0 +1,11 @@
+span.active-state:before {
+    content: ' \25CF';
+    font-size: 20px;
+    color: lightseagreen;
+}
+
+span.inactive-state:before {
+    content: ' \25CF';
+    font-size: 20px;
+    color: lightcoral;
+}
