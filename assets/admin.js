@@ -4,6 +4,16 @@
 
         $('[data-toggle="tooltip"]').tooltip(); // Initialized the tooltips
 
+        //Check all proditem (bulk)
+        $('#select_proditems').click(function(){
+            if($(this).prop("checked") == true){
+                $('.check_post').prop("checked",true);
+            }
+            else if($(this).prop("checked") == false){
+                $('.check_post').prop("checked",false);
+            }
+        });
+
 //Sync a product by id
         /*var sap_protocol = jQuery('#sap_protocol');
         var sap_host = jQuery('#sap_host').val();

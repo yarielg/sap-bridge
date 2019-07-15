@@ -28,7 +28,7 @@ $proditems = ProdItems::mergeProductItems($products, $items);
     <div class="row"></div>
         <h3 class="text-center mb-2">List of Products</h3>
 <?php
-
+        include 'includes/proditem/_action_header.php';
         include 'includes/proditem/_proditem_list.php';
 
         include 'includes/proditem/_product_pagination.php';

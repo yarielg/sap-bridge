@@ -25,7 +25,7 @@ class ProdItems
         $results = $wpdb->get_results(
         $wpdb->prepare("SELECT * FROM $wpdb->prefix" . "posts WHERE ID=%d", $id)
         );
-
+        wp_reset_query();
         return $results[0]->post_title;
     }
 
@@ -35,7 +35,7 @@ class ProdItems
         $results = $wpdb->get_results(
             $wpdb->prepare("SELECT * FROM $wpdb->prefix" . "postmeta WHERE post_id=%d AND meta_key=%s", $id,'_regular_price')
         );
-
+        wp_reset_query();
         return $results[0]->meta_value;
     }
 
@@ -45,7 +45,7 @@ class ProdItems
         $results = $wpdb->get_results(
             $wpdb->prepare("SELECT * FROM $wpdb->prefix" . "postmeta WHERE meta_key=%s", '_sku')
         );
-
+        wp_reset_query();
         return count($results);
     }
 
@@ -56,6 +56,7 @@ class ProdItems
         $results = $wpdb->get_results(
             $wpdb->prepare("SELECT * FROM $wpdb->prefix" . "postmeta WHERE meta_key=%s LIMIT %d,%d", '_sku',$offset,$limit)
         );
+        wp_reset_query();
         return stdToArray($results,'post_id','meta_value');
     }
 
