@@ -24,7 +24,7 @@ $proditems = ProdItems::mergeProductItems($products, $items);
 
 ?>
 
-<div class="container">
+<div class="container wp-page">
     <div class="row"></div>
         <h3 class="text-center mb-2">List of Products</h3>
 <?php

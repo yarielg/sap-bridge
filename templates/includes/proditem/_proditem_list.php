@@ -2,7 +2,7 @@
         <thead>
         <tr>
             <th><input type="checkbox" id="select_proditems"></th>
-            <th scope="col">ID</th>
+            <th scope="col"></th>
             <th scope="col">Name</th>
             <th scope="col">Sku</th>
             <th scope="col">Price SAP B1</th>
@@ -25,11 +25,13 @@
             $product_link = get_permalink( $proditem_id);
             $link_flag = $normal_price == $price && $price > 0 ? '<span class="active-state"></span>' : '<span class="inactive-state"></span>';
             $disabled_sync_btn_flag = $proditem['sku'] ? '' : 'disabled';
+            $image_url = get_the_post_thumbnail_url($proditem_id);
             $tooltip_msg = $proditem['sku'] ? 'data-toggle="tooltip" title="Sync this product with SAP"' : 'data-toggle="tooltip" title="This Product need a sku to sync"';
             echo "<tr>
                         <td><input class='check_post' type='checkbox' id='' name='checkbox_posts[]' value='{$proditem_id}_{$price}'></td>
     
-                        <td>{$proditem_id} </td>
+                       <!-- <td>{$proditem_id} </td> -->
+                        <td><img width='40' height='40' src='{$image_url}' alt=''></td>
                         <td>{$name}</td>
                         <td>$sku</td>
                         <td>$ {$price}</td>
@@ -40,7 +42,7 @@
                                 <input type='text' name='price' hidden value='{$price}'>
                                 <span class='d-inline-block' tabindex='0' {$tooltip_msg}>
                                 <input type='submit'
-                                 class='btn btn-success btn_sync_sap'
+                                 class='btn btn-success btn-sm btn_sync_sap'
                                  sku='{$proditem['sku']}'
                                   id='btn_id_{$proditem_id}'
                                   {$disabled_sync_btn_flag} 
@@ -48,7 +50,7 @@
                                   />
                               </span>
                               
-                              <a class='btn btn-info' href='{$product_link}'>View</a>
+                              <a class='btn btn-info btn-sm' href='{$product_link}'>View</a>
                             </form>
                         </td>
                                 

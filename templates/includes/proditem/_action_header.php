@@ -26,12 +26,12 @@ if(isset($_POST['apply_bulks']) && isset($_POST['checkbox_posts'])){
 
 <form action="" method="post" class="form-inline">
     <div class="form-group" >
-        <select class="form-control" name="bulk_operation" id="">
+        <select class="form-control mr-2" name="bulk_operation" id="">
             <option value="default">Select Option</option>
             <option value="sync">Sync</option>
             <!--<option value="delete">Delete</option>-->
         </select>
     </div>
     <div class="form-group">
-        <input type="submit" class="btn btn-primary" name="apply_bulks" value="Apply">
+        <input type="submit" class="btn btn-primary btn-sm" name="apply_bulks" value="Apply">
     </div>

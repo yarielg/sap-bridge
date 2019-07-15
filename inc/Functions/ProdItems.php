@@ -15,7 +15,7 @@ class ProdItems
 
     static function syncProditem($id,$price){
         update_post_meta($id, '_regular_price', $price);
-        update_post_meta($id, '_price', 0);
+        update_post_meta($id, '_price', $price);
 
     }
 
