@@ -2,6 +2,15 @@
 
 use Inc\Functions\ProdItems;
 
+include 'includes/_sap_settings.php'; //Including the sap settings fields fir use in javascript
+
+//Controller Actions
+if(isset($_POST['post_id'])){
+    ProdItems::syncProditem($_POST['post_id'],$_POST['price']);
+    echo '<div class="alert alert-success" role="alert">' .
+        'Product updated' .
+        '</div>';
+}
 $user = wp_get_current_user();
 $user_price_list = esc_attr(get_the_author_meta( 'price_list', $user->id ));
 $page = isset( $_GET['paged'])? $_GET['paged'] : 1;

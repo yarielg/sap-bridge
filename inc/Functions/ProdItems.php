@@ -13,7 +13,9 @@ class ProdItems
 {
 
 
-    static function proditemIsLinked($sku){
+    static function syncProditem($id,$price){
+        update_post_meta($id, '_regular_price', $price);
+        update_post_meta($id, '_price', 0);
 
     }
 
@@ -31,7 +33,7 @@ class ProdItems
         global $wpdb;
 
         $results = $wpdb->get_results(
-            $wpdb->prepare("SELECT * FROM $wpdb->prefix" . "postmeta WHERE post_id=%d AND meta_key=%s", $id,'_price')
+            $wpdb->prepare("SELECT * FROM $wpdb->prefix" . "postmeta WHERE post_id=%d AND meta_key=%s", $id,'_regular_price')
         );
 
         return $results[0]->meta_value;

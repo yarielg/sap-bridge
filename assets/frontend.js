@@ -1,4 +1,6 @@
 (function($){
+
+
     
    /* jQuery(document).ready(function(){
 
@@ -135,6 +137,6 @@
             ajax_check_availability();          
          });
 
-    });
+    });*/
 
-})(jQuery);*/
+})(jQuery);
